@@ -6,39 +6,63 @@
     let products = []; // Array to store products based on selection
 
     // Static product data
-    const allProducts = [
-        {
-            id: "1",
-            name: "Casual Shirt",
-            category: "Casual",
-            price: 29.99,
-            image: "https://imgs.search.brave.com/CF7ne71qw8fmijGT0M4242-FTF0TVmqppmoplecH_14/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzEwVDdvcmRvZEwu/anBn",
-            material: "Cotton",
-            size: "M",
-            link: "#"
-        },
-        {
-            id: "2",
-            name: "Formal Suit",
-            category: "Formal",
-            price: 99.99,
-            image: "https://imgs.search.brave.com/2UdIDeLW_lPZwsu61s-qpR_2JQ8pPBY4vFDk71za-ok/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzF5Nkx4WmljbEwu/anBn",
-            material: "Wool",
-            size: "L",
-            link: "#"
-        },
-        {
-            id: "3",
-            name: "Sports Jacket",
-            category: "Sports",
-            price: 49.99,
-            image: "https://imgs.search.brave.com/qMFhxdXxL4kGLwKVM8HRsV5sWw0FXSkDC9cga1BMR3U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFrSDBsZjVvQ0wu/anBn",
-            material: "Polyester",
-            size: "M",
-            link: "#"
-        },
-        // Add more products as needed
-    ];
+    // const allProducts = [
+    //     {
+    //         id: "1",
+    //         name: "Casual Shirt",
+    //         category: "Casual",
+    //         price: 29.99,
+    //         image: "https://imgs.search.brave.com/CF7ne71qw8fmijGT0M4242-FTF0TVmqppmoplecH_14/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzEwVDdvcmRvZEwu/anBn",
+    //         material: "Cotton",
+    //         size: "M",
+    //         link: "#"
+    //     },
+    //     {
+    //         id: "2",
+    //         name: "Formal Suit",
+    //         category: "Formal",
+    //         price: 99.99,
+    //         image: "https://imgs.search.brave.com/2UdIDeLW_lPZwsu61s-qpR_2JQ8pPBY4vFDk71za-ok/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzF5Nkx4WmljbEwu/anBn",
+    //         material: "Wool",
+    //         size: "L",
+    //         link: "#"
+    //     },
+    //     {
+    //         id: "3",
+    //         name: "Sports Jacket",
+    //         category: "Sports",
+    //         price: 49.99,
+    //         image: "https://imgs.search.brave.com/qMFhxdXxL4kGLwKVM8HRsV5sWw0FXSkDC9cga1BMR3U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NzFrSDBsZjVvQ0wu/anBn",
+    //         material: "Polyester",
+    //         size: "M",
+    //         link: "#"
+    //     },
+    //     // Add more products as needed
+    // ];
+
+    const allProducts = [];
+
+    function generateProduct(id) {
+    const categories = ["Casual", "Formal", "Sports"];
+    const materials = ["Cotton", "Wool", "Polyester", "Nylon", "Leather"];
+    const sizes = ["XS", "S", "M", "L", "XL"];
+
+    return {
+        id: id.toString(),
+        name: `${categories[Math.floor(Math.random() * categories.length)]} ${Math.random().toString(36).substring(2, 7)}`,
+        category: categories[Math.floor(Math.random() * categories.length)],
+        price: Math.floor(Math.random() * (100 - 20) + 20), // Random price between $20 and $100
+        image: `https://picsum.photos/200?random=${id}`, // Random image from Unsplash
+        material: materials[Math.floor(Math.random() * materials.length)],
+        size: sizes[Math.floor(Math.random() * sizes.length)],
+        link: "#",
+    };
+    }
+
+    for (let i = 0; i < 20; i++) {
+    allProducts.push(generateProduct(i + 1));
+    }
+
 
     const handleOptionChange = (event) => {
         selectedOption = event.target.value;
