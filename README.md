@@ -21,7 +21,8 @@ This project seamlessly aligns with the United Nations Sustainable Development G
 * **SDG 12:** Responsible Consumption and Production.
 By blending technology, innovation, and sustainability, this project creates a practical solution for a pressing global issue while providing a delightful user experience.
 
-<img title="Workflow" alt="Alt text" src="C:/Users/SP AKILAN/Downloads/Workflow.png">
+<img title="Workflow" alt="Alt text" src="static/Workflow.png">
+<img title="Workflow" alt="Alt text" src="static/Concept.png">
 
 
 ## <ins>Tech Stack:</ins>
